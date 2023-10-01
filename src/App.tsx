@@ -1,7 +1,9 @@
+import { PageContainer } from '@/components'
+
 export const App = () => {
 	return (
-		<h1 className='text-4xl font-bold text-fuchsia-600 text-center'>
-			Hello VZENTS
-		</h1>
+		<PageContainer>
+			<h1 className='font-bold text-center text-5xl'>Hello VZENTS</h1>
+		</PageContainer>
 	)
 }
