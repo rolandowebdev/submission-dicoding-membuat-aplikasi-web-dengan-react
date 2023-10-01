@@ -7,11 +7,12 @@ import '@/index.pcss'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from '@/App.tsx'
-import { RootContainer } from '@/components'
+import { Navbar, RootContainer } from '@/components'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<RootContainer>
+			<Navbar />
 			<App />
 		</RootContainer>
 	</React.StrictMode>
