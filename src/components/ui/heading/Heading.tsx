@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
-export type HeadingProps = {
+type HeadingProps = {
 	children: React.ReactNode
 	className?: string
 	variant: 'h1' | 'h2' | 'h3' | 'h4'

@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
-export type IconProps = {
+type IconProps = {
 	label: string
 	className?: string
 	children: React.ReactNode

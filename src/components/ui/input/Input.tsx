@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import clsx from 'clsx'
 
 type InputProps = {
-	type: 'text' | 'number'
+	type: 'text' | 'number' | 'search'
 	className?: string
 	placeholder: string
 	children: React.ReactNode

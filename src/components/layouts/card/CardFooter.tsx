@@ -1,13 +1,17 @@
 import { IconButton } from '@/components'
+import { useNotes } from '@/hooks'
 import { showFormattedDate } from '@/utils'
 import { FiEdit } from 'react-icons/fi'
 import { RiDeleteBin5Fill } from 'react-icons/ri'
 
 type CardFooterProps = {
+	id: number
 	createdAt: string
 }
 
-export const CardFooter = ({ createdAt }: CardFooterProps) => {
+export const CardFooter = ({ id, createdAt }: CardFooterProps) => {
+	const { handleDeleteNote } = useNotes()
+
 	return (
 		<div className='flex flex-col gap-3'>
 			<time className='text-xs font-bold' dateTime={createdAt}>
@@ -19,7 +23,10 @@ export const CardFooter = ({ createdAt }: CardFooterProps) => {
 					<FiEdit className='text-lg text-brand-softDark transition-colors duration-300 dark:text-brand-softLight hover:text-emerald-500 dark:hover:text-emerald-500' />
 				</IconButton>
 
-				<IconButton label='Delete Note' basic={false}>
+				<IconButton
+					label='Delete Note'
+					basic={false}
+					onClick={() => handleDeleteNote(id)}>
 					<RiDeleteBin5Fill className='text-xl text-brand-softDark transition-colors duration-300 dark:text-brand-softLight hover:text-rose-500 dark:hover:text-rose-500' />
 				</IconButton>
 			</div>
