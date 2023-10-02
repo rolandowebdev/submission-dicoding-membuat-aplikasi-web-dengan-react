@@ -5,5 +5,7 @@ type HeaderProps = {
 }
 
 export const Header = ({ children }: HeaderProps) => {
-	return <header className='flex items-center gap-3 w-full'>{children}</header>
+	return (
+		<header className='flex items-center gap-3 w-full mb-4'>{children}</header>
+	)
 }
