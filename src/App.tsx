@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
 	Card,
 	CardContainer,
-	CardHeader,
+	NoteHeader,
 	Header,
 	IconButton,
 	Input,
@@ -13,7 +14,6 @@ import { AiOutlineSearch, AiOutlinePlus } from 'react-icons/ai'
 import { getInitialData } from './utils'
 
 export const App = () => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [notes, setNotes] = useState(getInitialData())
 
 	const unarchivedNotes = notes.filter((note) => !note.archived)
@@ -31,7 +31,7 @@ export const App = () => {
 			</Header>
 
 			<NoteContainer>
-				<CardHeader title='Unarchived' count={unarchivedNotes.length} />
+				<NoteHeader title='Unarchived' count={unarchivedNotes.length} />
 				<CardContainer>
 					{unarchivedNotes.map((note) => (
 						<Card
@@ -46,7 +46,7 @@ export const App = () => {
 			</NoteContainer>
 
 			<NoteContainer>
-				<CardHeader title='Archived' count={archivedNotes.length} />
+				<NoteHeader title='Archived' count={archivedNotes.length} />
 				<CardContainer>
 					{archivedNotes.map((note) => (
 						<Card

@@ -1,2 +1,2 @@
 export * from './Header'
-export * from './CardHeader'
+export * from './NoteHeader'

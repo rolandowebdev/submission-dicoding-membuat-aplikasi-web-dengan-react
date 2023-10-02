@@ -47,7 +47,7 @@ export const Input = ({
 			<input
 				type={type}
 				placeholder={placeholder}
-				className='h-full w-full bg-transparent outline-none placeholder:text-brand-dark dark:placeholder:text-brand-light'
+				className='h-full w-full bg-transparent outline-none placeholder:text-brand-softDark dark:placeholder:text-brand-softLight'
 			/>
 		</div>
 	)
