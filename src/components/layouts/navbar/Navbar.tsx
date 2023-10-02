@@ -1,4 +1,4 @@
-import { IconButton } from '@/components'
+import { Icon, IconButton } from '@/components'
 import { useTheme } from '@/hooks'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { BsCloudSunFill } from 'react-icons/bs'
@@ -10,18 +10,16 @@ export const Navbar = () => {
 
 	return (
 		<header className='w-full h-20 max-w-3xl mx-auto sticky top-0 z-10 flex items-center justify-between'>
-			<IconButton
-				label='Icon'
-				className='flex items-center gap-2 cursor-default'>
+			<Icon label='Icon logo'>
 				<RiThunderstormsFill />
 				InkStorm
-			</IconButton>
+			</Icon>
 			<nav className='flex items-center gap-3'>
-				<IconButton label='Toggle theme' onClick={toggleTheme}>
-					{theme === 'dark' ? <FaCloudMoon /> : <BsCloudSunFill />}
-				</IconButton>
 				<IconButton label='Add Note'>
 					<AiOutlinePlus />
+				</IconButton>
+				<IconButton label='Toggle theme' onClick={toggleTheme}>
+					{theme === 'dark' ? <FaCloudMoon /> : <BsCloudSunFill />}
 				</IconButton>
 			</nav>
 		</header>

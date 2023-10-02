@@ -12,8 +12,8 @@ export default {
 					blue: '#4477CE',
 					dark: '#222831',
 					light: '#F7F7F7',
-					softDark: '#393E46',
-					softLight: '#EEEEEE'
+					softDark: '#38404b',
+					softLight: '#e4e4e4'
 				}
 			}
 		}
