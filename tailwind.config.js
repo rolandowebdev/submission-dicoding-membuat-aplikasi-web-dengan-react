@@ -10,10 +10,10 @@ export default {
 			colors: {
 				brand: {
 					blue: '#4477CE',
-					dark: '#222831',
+					dark: '#1e2025',
 					light: '#F7F7F7',
-					softDark: '#38404b',
-					softLight: '#e4e4e4'
+					softDark: '#292b33',
+					softLight: '#d8d8d8'
 				}
 			}
 		}

@@ -40,6 +40,7 @@ export const Input = ({
 			className={clsx(
 				'h-11 w-full flex items-center gap-1 px-2 rounded-md',
 				'bg-brand-softLight dark:bg-brand-softDark',
+				'transition-colors duration-300',
 				className
 			)}>
 			{children}

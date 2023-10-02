@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+	@apply bg-brand-blue text-brand-softLight dark:text-brand-dark;
+}
+
+::-moz-selection {
+	@apply bg-brand-blue text-brand-softLight dark:text-brand-dark;
+}
+
+::-webkit-scrollbar {
+	@apply w-1;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-brand-softLight dark:bg-brand-dark;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-brand-blue;
+}
