@@ -9,8 +9,8 @@ export const Navbar = () => {
 	const { theme, toggleTheme } = useTheme()
 
 	return (
-		<header className='w-full h-20 max-w-3xl mx-auto sticky top-0 z-10 flex items-center justify-between'>
-			<Icon label='Icon logo'>
+		<header className='w-full h-20 max-w-xl mx-auto sticky top-0 z-10 flex items-center justify-between'>
+			<Icon label='Icon logo' className='text-xl'>
 				<RiThunderstormsFill />
 				InkStorm
 			</Icon>

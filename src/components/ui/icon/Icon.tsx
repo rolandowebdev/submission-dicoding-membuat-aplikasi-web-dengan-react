@@ -1,13 +1,19 @@
+import React from 'react'
+import clsx from 'clsx'
+
 export type IconProps = {
 	label: string
 	className?: string
 	children: React.ReactNode
 }
 
-export const Icon = ({ label, children }: IconProps) => {
+export const Icon = ({ label, className, children }: IconProps) => {
 	return (
 		<div
-			className='flex items-center gap-2 font-semibold text-xl cursor-default'
+			className={clsx(
+				'flex items-center gap-2 font-semibold cursor-default',
+				className
+			)}
 			aria-label={label}>
 			{children}
 		</div>

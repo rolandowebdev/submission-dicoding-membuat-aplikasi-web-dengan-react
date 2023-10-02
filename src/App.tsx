@@ -1,9 +1,12 @@
-import { PageContainer } from '@/components'
+import { Input, PageContainer } from '@/components'
+import { AiOutlineSearch } from 'react-icons/ai'
 
 export const App = () => {
 	return (
 		<PageContainer>
-			<h1 className='font-bold text-center text-5xl transition-all duration-700'>InkStorm</h1>
+			<Input type='text' placeholder='Search'>
+				<AiOutlineSearch className='text-lg' />
+			</Input>
 		</PageContainer>
 	)
 }
