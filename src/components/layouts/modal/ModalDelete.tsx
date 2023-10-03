@@ -8,27 +8,29 @@ import {
 	ModalOverlay
 } from './components'
 import { useState } from 'react'
+import { useNotes } from '@/hooks'
 
 type ModalDeleteProps = {
 	id: number
 	title: string
+	actionText: string
 	description: string
-	onDelete: (id: number) => void
 }
 
 export const ModalDelete = ({
 	id,
 	title,
-	description,
-	onDelete
+	actionText,
+	description
 }: ModalDeleteProps) => {
+	const { handleDeleteNote } = useNotes()
 	const [isShowModalDelete, setIsShowModalDelete] = useState(false)
 
 	const handleShowModalDelete = () => setIsShowModalDelete(true)
 	const handleHideModalDelete = () => setIsShowModalDelete(false)
 
-	const handleDeleteButton = () => {
-		onDelete(id)
+	const handleDelete = () => {
+		handleDeleteNote(id)
 		handleHideModalDelete()
 	}
 
@@ -50,14 +52,14 @@ export const ModalDelete = ({
 							handleHideModal={handleHideModalDelete}
 						/>
 						<ModalBody>
-							<Paragraph isSmall={false} className='text-[20px]'>
+							<Paragraph isSmall={false} className='text-lg'>
 								{description}
 							</Paragraph>
 						</ModalBody>
 						<ModalFooter
-							buttonText={title}
+							buttonText={actionText}
 							handleHideModal={handleHideModalDelete}
-							handleDelete={handleDeleteButton}
+							handleDelete={handleDelete}
 						/>
 					</ModalContent>
 				</>

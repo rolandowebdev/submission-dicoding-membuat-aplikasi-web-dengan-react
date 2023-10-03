@@ -1,5 +1,5 @@
 type ModalOverlayProps = {
-	handleHideModal: () => void
+	handleHideModal?: () => void
 }
 
 export const ModalOverlay = ({ handleHideModal }: ModalOverlayProps) => {

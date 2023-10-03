@@ -3,5 +3,5 @@ type ModalBodyProps = {
 }
 
 export const ModalBody = ({ children }: ModalBodyProps) => {
-	return <div className='py-8'>{children}</div>
+	return <div className='pt-8'>{children}</div>
 }

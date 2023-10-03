@@ -1,5 +1,5 @@
 export type Note = {
-	id: number
+	id: number | string
 	title: string
 	body: string
 	createdAt: string

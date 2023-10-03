@@ -7,9 +7,9 @@ import {
 	NoteContainer,
 	PageContainer,
 	Paragraph,
-	Button
+	ModalAddForm
 } from '@/components'
-import { AiOutlineSearch, AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlineSearch } from 'react-icons/ai'
 import { useNotes } from '@/hooks'
 
 export const App = () => {
@@ -30,9 +30,7 @@ export const App = () => {
 					onChange={(e) => setSearchQuery(e.target.value)}>
 					<AiOutlineSearch className='text-lg' />
 				</Input>
-				<Button label='Add Note'>
-					<AiOutlinePlus />
-				</Button>
+				<ModalAddForm title='Add Note' />
 			</Header>
 
 			<NoteContainer>

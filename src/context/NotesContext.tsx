@@ -8,6 +8,7 @@ type NotesContextType = {
 	unarchivedNotes: Note[]
 	handleArchivedNote: (id: number) => void
 	handleDeleteNote: (id: number) => void
+	handleAddNote: (title: string, description: string) => void
 	setSearchQuery: (query: string) => void
 }
 
@@ -21,6 +22,7 @@ const initialNotesContext: NotesContextType = {
 	unarchivedNotes: [],
 	handleArchivedNote: () => {},
 	handleDeleteNote: () => {},
+	handleAddNote: () => {},
 	setSearchQuery: () => {}
 }
 
@@ -36,6 +38,20 @@ export const NotesProvider = ({ children }: NotesProviderProps) => {
 
 	const archivedNotes = filteredNotes.filter((note) => note.archived)
 	const unarchivedNotes = filteredNotes.filter((note) => !note.archived)
+
+	const handleAddNote = (title: string, body: string) => {
+		const timestamp = new Date()
+
+		const newNote: Note = {
+			id: +timestamp,
+			title,
+			body,
+			archived: false,
+			createdAt: timestamp.toString()
+		}
+
+		setNotes((prevNotes) => [...prevNotes, newNote])
+	}
 
 	const handleDeleteNote = (id: number) => {
 		setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id))
@@ -57,6 +73,7 @@ export const NotesProvider = ({ children }: NotesProviderProps) => {
 				unarchivedNotes,
 				handleArchivedNote,
 				handleDeleteNote,
+				handleAddNote,
 				setSearchQuery
 			}}>
 			{children}

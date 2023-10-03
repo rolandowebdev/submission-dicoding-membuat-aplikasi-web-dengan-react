@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 
 export type ButtonProps = {
+	type?: 'button' | 'reset' | 'submit'
 	label: string
 	baseSize?: boolean
 	basicStyle?: boolean
@@ -11,6 +12,7 @@ export type ButtonProps = {
 }
 
 export const Button = ({
+	type = 'button',
 	label,
 	baseSize = true,
 	basicStyle = true,
@@ -19,6 +21,7 @@ export const Button = ({
 	...rest
 }: ButtonProps) => (
 	<button
+		type={type}
 		className={clsx(
 			'font-semibold outline outline-4 outline-transparent transition-[outline] duration-300 hover:outline-4 focus:outline focus:outline-4',
 			'transition-[background-color] duration-300',

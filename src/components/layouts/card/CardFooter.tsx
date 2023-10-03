@@ -1,5 +1,4 @@
 import { Button, ModalDelete } from '@/components'
-import { useNotes } from '@/hooks'
 import { showFormattedDate } from '@/utils'
 import { FiEdit } from 'react-icons/fi'
 
@@ -9,8 +8,6 @@ type CardFooterProps = {
 }
 
 export const CardFooter = ({ id, createdAt }: CardFooterProps) => {
-	const { handleDeleteNote } = useNotes()
-
 	return (
 		<div className='flex flex-col gap-3'>
 			<time className='text-xs font-bold' dateTime={createdAt}>
@@ -24,9 +21,9 @@ export const CardFooter = ({ id, createdAt }: CardFooterProps) => {
 
 				<ModalDelete
 					id={id}
-					title='Delete'
+					title='Delete Note'
+					actionText='Delete'
 					description='Are you sure want to delete this note?'
-					onDelete={handleDeleteNote}
 				/>
 			</div>
 		</div>

@@ -61,6 +61,8 @@ export const Input = ({
 				onChange={handleInputChange}
 				placeholder={placeholder}
 				className='h-full w-full bg-transparent outline-none placeholder:text-brand-softDark dark:placeholder:text-brand-softLight'
+				autoComplete='off'
+				required
 			/>
 		</div>
 	)

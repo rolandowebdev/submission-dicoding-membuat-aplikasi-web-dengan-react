@@ -36,7 +36,9 @@ export const CardContent = ({
 				<Heading variant='h2' className='text-base'>
 					{title}
 				</Heading>
-				<Paragraph>{`${body.slice(0, 70)}...`}</Paragraph>
+				<Paragraph>{`${body.length > 80 ? body.slice(0, 80) : body}${
+					body.length > 80 ? '...' : ''
+				}`}</Paragraph>
 			</div>
 		</div>
 	)
