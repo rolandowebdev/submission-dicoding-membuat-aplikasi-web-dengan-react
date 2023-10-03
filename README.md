@@ -1,6 +1,6 @@
 # [Ink Storm - Belajar Membuat Aplikasi Web Dengan React - IDCamp Scholarship Submission Project 2023](https://www.dicoding.com/academies/403/corridor)
 
-[![Ink Storm Preview](/ink-storm-preview.png)](https://ink-storm-idcamp.netlify.app/)
+[![Ink Storm Preview](public/ink-storm-preview.png)](https://ink-storm-idcamp.netlify.app/)
 
 Welcome to the Ink Storm project! This application is part of my submission for the IDCamp scholarship in 2023. Ink Storm is a simple book management application designed to help beginners create web frontends using React. Whether you're new to web development or looking for a straightforward example project, Ink Storm is here to assist you.
 
@@ -18,11 +18,11 @@ Ink Storm is a minimalistic web application that showcases the power of React fo
 
 ## Features
 
-- Create note.
-- Delete note.
-- Search note.
-- Dark mode.
-- Edit note.
+- 📘️ Create note
+- 🔥️ Delete note
+- 🔍️ Search note
+- 🌖️ Dark mode
+- 📝️ Edit note
 
 ## Tech Stack
 
