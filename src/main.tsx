@@ -7,7 +7,7 @@ import '@/index.pcss'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from '@/App.tsx'
-import { Navbar, RootContainer } from '@/components'
+import { Footer, Navbar, RootContainer } from '@/components'
 import { NotesProvider } from '@/context'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -16,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 			<NotesProvider>
 				<Navbar />
 				<App />
+				<Footer />
 			</NotesProvider>
 		</RootContainer>
 	</React.StrictMode>
