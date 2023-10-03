@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { getInitialData } from '@/utils'
+import { getInitialData, showNotification } from '@/utils'
 import { Note } from '@/types'
 
 type NotesContextType = {
@@ -55,6 +55,11 @@ export const NotesProvider = ({ children }: NotesProviderProps) => {
 		}
 
 		setNotes((prevNotes) => [...prevNotes, newNote])
+
+		showNotification({
+			title: 'Note Created',
+			message: 'You have successfully created a new note.'
+		})
 	}
 
 	const handleEditNote = (id: number, title: string, body: string) => {
@@ -63,10 +68,20 @@ export const NotesProvider = ({ children }: NotesProviderProps) => {
 				note.id === id ? { ...note, title, body } : note
 			)
 		)
+
+		showNotification({
+			title: 'Note Edited',
+			message: 'You have successfully edited the note.'
+		})
 	}
 
 	const handleDeleteNote = (id: number) => {
 		setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id))
+
+		showNotification({
+			title: 'Note Deleted',
+			message: 'You have deleted a note.'
+		})
 	}
 
 	const handleArchivedNote = (id: number) => {
