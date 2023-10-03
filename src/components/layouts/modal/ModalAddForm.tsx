@@ -26,7 +26,7 @@ export const ModalAddForm = ({ title }: ModalAddFormProps) => {
 			{isShowModalAddForm && (
 				<>
 					<ModalOverlay handleHideModal={handleHideModalAddForm} />
-					<ModalContent>
+					<ModalContent className='max-w-sm'>
 						<ModalHeader
 							title={title}
 							handleHideModal={handleHideModalAddForm}

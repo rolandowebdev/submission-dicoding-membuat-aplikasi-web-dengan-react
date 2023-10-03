@@ -1,5 +1,7 @@
+import { FormEvent } from 'react'
+
 type ModalOverlayProps = {
-	handleHideModal?: () => void
+	handleHideModal?: (event: FormEvent) => void
 }
 
 export const ModalOverlay = ({ handleHideModal }: ModalOverlayProps) => {

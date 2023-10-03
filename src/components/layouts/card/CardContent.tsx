@@ -1,5 +1,6 @@
 import { Heading, Button, Paragraph } from '@/components'
 import { useNotes } from '@/hooks'
+import { FormEvent } from 'react'
 import { BsPatchCheck } from 'react-icons/bs'
 import { MdOutlineRadioButtonUnchecked } from 'react-icons/md'
 
@@ -8,13 +9,15 @@ type CardContentProps = {
 	body: string
 	title: string
 	archived: boolean
+	handleShowModalCard: (event: FormEvent) => void
 }
 
 export const CardContent = ({
 	id,
 	body,
 	title,
-	archived
+	archived,
+	handleShowModalCard
 }: CardContentProps) => {
 	const { handleArchivedNote } = useNotes()
 
@@ -32,7 +35,9 @@ export const CardContent = ({
 				)}
 			</Button>
 
-			<div className='flex flex-col gap-3'>
+			<div
+				onClick={(event) => handleShowModalCard(event)}
+				className='flex flex-col gap-3 cursor-pointer hover:underline'>
 				<Heading variant='h2' className='text-base'>
 					{title}
 				</Heading>

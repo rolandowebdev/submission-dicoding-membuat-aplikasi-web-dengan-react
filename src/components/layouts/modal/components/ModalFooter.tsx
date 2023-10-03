@@ -1,10 +1,10 @@
 import { Button } from '@/components'
+import { FormEvent } from 'react'
 
 type ModalFooterProps = {
 	buttonText: string
-	isDeleteButton?: boolean
-	handleDelete: () => void
-	handleHideModal: () => void
+	handleDelete: (event: FormEvent) => void
+	handleHideModal: (event: FormEvent) => void
 }
 
 export const ModalFooter = ({

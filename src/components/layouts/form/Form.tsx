@@ -5,7 +5,7 @@ import { MdOutlineDescription, MdTitle } from 'react-icons/md'
 
 type FormProps = {
 	id?: number
-	handleHideModalForm: () => void
+	handleHideModalForm: (event: FormEvent) => void
 }
 
 export const Form = ({ id, handleHideModalForm }: FormProps) => {
@@ -17,8 +17,8 @@ export const Form = ({ id, handleHideModalForm }: FormProps) => {
 	const [title, setTitle] = useState(initialNote?.title || '')
 	const [body, setBody] = useState(initialNote?.body || '')
 
-	const createNote = (e: FormEvent) => {
-		e.preventDefault()
+	const createNote = (event: FormEvent) => {
+		event.preventDefault()
 
 		if (isIdExist) {
 			handleEditNote(id as number, title, body)
@@ -28,7 +28,8 @@ export const Form = ({ id, handleHideModalForm }: FormProps) => {
 
 		setTitle('')
 		setBody('')
-		handleHideModalForm()
+
+		handleHideModalForm(event)
 	}
 
 	return (

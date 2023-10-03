@@ -6,7 +6,7 @@ import {
 	ModalHeader,
 	ModalOverlay
 } from './components'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 type ModalEditFormProps = {
 	id: number
@@ -16,8 +16,17 @@ type ModalEditFormProps = {
 export const ModalEditForm = ({ id, title }: ModalEditFormProps) => {
 	const [isShowModalEditForm, setIsShowModalEditForm] = useState(false)
 
-	const handleShowModalEditForm = () => setIsShowModalEditForm(true)
-	const handleHideModalEditForm = () => setIsShowModalEditForm(false)
+	const handleShowModalEditForm = (event: FormEvent) => {
+		event.preventDefault()
+		event.stopPropagation()
+		setIsShowModalEditForm(true)
+	}
+
+	const handleHideModalEditForm = (event: FormEvent) => {
+		event.preventDefault()
+		event.stopPropagation()
+		setIsShowModalEditForm(false)
+	}
 
 	return (
 		<>
@@ -31,7 +40,7 @@ export const ModalEditForm = ({ id, title }: ModalEditFormProps) => {
 			{isShowModalEditForm && (
 				<>
 					<ModalOverlay handleHideModal={handleHideModalEditForm} />
-					<ModalContent>
+					<ModalContent className='max-w-sm'>
 						<ModalHeader
 							title={title}
 							handleHideModal={handleHideModalEditForm}

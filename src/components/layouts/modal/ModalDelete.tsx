@@ -7,7 +7,7 @@ import {
 	ModalHeader,
 	ModalOverlay
 } from './components'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { useNotes } from '@/hooks'
 
 type ModalDeleteProps = {
@@ -26,12 +26,19 @@ export const ModalDelete = ({
 	const { handleDeleteNote } = useNotes()
 	const [isShowModalDelete, setIsShowModalDelete] = useState(false)
 
-	const handleShowModalDelete = () => setIsShowModalDelete(true)
-	const handleHideModalDelete = () => setIsShowModalDelete(false)
+	const handleShowModalDelete = (event: FormEvent) => {
+		event.stopPropagation()
+		setIsShowModalDelete(true)
+	}
+	const handleHideModalDelete = (event: FormEvent) => {
+		event.stopPropagation()
+		setIsShowModalDelete(false)
+	}
 
-	const handleDelete = () => {
+	const handleDelete = (event: FormEvent) => {
+		event.stopPropagation()
 		handleDeleteNote(id)
-		handleHideModalDelete()
+		handleHideModalDelete(event)
 	}
 
 	return (
@@ -46,7 +53,7 @@ export const ModalDelete = ({
 			{isShowModalDelete && (
 				<>
 					<ModalOverlay handleHideModal={handleHideModalDelete} />
-					<ModalContent>
+					<ModalContent className='max-w-sm'>
 						<ModalHeader
 							title={title}
 							handleHideModal={handleHideModalDelete}

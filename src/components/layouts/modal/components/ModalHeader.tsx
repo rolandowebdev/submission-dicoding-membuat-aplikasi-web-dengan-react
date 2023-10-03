@@ -1,9 +1,10 @@
 import { Heading, Button } from '@/components'
+import { FormEvent } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 
 type ModalHeaderProps = {
 	title: string
-	handleHideModal: () => void
+	handleHideModal: (event: FormEvent) => void
 }
 
 export const ModalHeader = ({ title, handleHideModal }: ModalHeaderProps) => {
