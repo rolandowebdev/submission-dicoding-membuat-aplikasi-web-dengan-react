@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useRef } from 'react'
+import React, { ChangeEvent, useRef, useState } from 'react'
+import { Paragraph } from '..'
 import clsx from 'clsx'
 
 type InputProps = {
@@ -9,6 +10,7 @@ type InputProps = {
 	placeholder: string
 	children: React.ReactNode
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void
+	limitCharacter?: number
 }
 
 export const Input = ({
@@ -18,9 +20,13 @@ export const Input = ({
 	className,
 	placeholder,
 	onChange,
-	children
+	children,
+	limitCharacter
 }: InputProps) => {
 	const inputWrapper = useRef<HTMLDivElement | null>(null)
+	const [characterCount, setCharacterCount] = useState<number>(
+		limitCharacter !== undefined ? limitCharacter - value.toString().length : 0
+	)
 
 	const handleFocus = () => {
 		if (inputWrapper.current) {
@@ -39,6 +45,16 @@ export const Input = ({
 	}
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const inputValue = e.target.value
+		setCharacterCount(
+			limitCharacter !== undefined ? limitCharacter - inputValue.length : 0
+		)
+
+		if (limitCharacter !== undefined && inputValue.length > limitCharacter) {
+			e.target.value = inputValue.slice(0, limitCharacter)
+			setCharacterCount(0)
+		}
+
 		onChange(e)
 	}
 
@@ -64,6 +80,16 @@ export const Input = ({
 				autoComplete='off'
 				required
 			/>
+			{limitCharacter ? (
+				<Paragraph
+					className={clsx(
+						'text-[10px] font-bold',
+						characterCount <= 10 ? 'text-orange-500' : null,
+						characterCount <= 5 ? 'text-rose-500' : null
+					)}>
+					{characterCount}/{limitCharacter}
+				</Paragraph>
+			) : null}
 		</div>
 	)
 }

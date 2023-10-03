@@ -29,7 +29,8 @@ export const Form = ({ handleHideModalAddForm }: FormProps) => {
 				name='title'
 				placeholder='Title'
 				value={title}
-				onChange={(e) => setTitle(e.target.value)}>
+				onChange={(e) => setTitle(e.target.value)}
+				limitCharacter={50}>
 				<MdTitle />
 			</Input>
 			<Input
