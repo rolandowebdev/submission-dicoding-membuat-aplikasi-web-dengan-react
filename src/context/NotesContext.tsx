@@ -9,7 +9,9 @@ type NotesContextType = {
 	handleArchivedNote: (id: number) => void
 	handleDeleteNote: (id: number) => void
 	handleAddNote: (title: string, description: string) => void
+	handleEditNote: (id: number, title: string, body: string) => void
 	setSearchQuery: (query: string) => void
+	getNoteById: (id: number) => Note | undefined
 }
 
 type NotesProviderProps = {
@@ -23,7 +25,9 @@ const initialNotesContext: NotesContextType = {
 	handleArchivedNote: () => {},
 	handleDeleteNote: () => {},
 	handleAddNote: () => {},
-	setSearchQuery: () => {}
+	handleEditNote: () => {},
+	setSearchQuery: () => {},
+	getNoteById: () => undefined
 }
 
 export const NotesContext = createContext<NotesContextType>(initialNotesContext)
@@ -53,6 +57,14 @@ export const NotesProvider = ({ children }: NotesProviderProps) => {
 		setNotes((prevNotes) => [...prevNotes, newNote])
 	}
 
+	const handleEditNote = (id: number, title: string, body: string) => {
+		setNotes((prevNotes) =>
+			prevNotes.map((note) =>
+				note.id === id ? { ...note, title, body } : note
+			)
+		)
+	}
+
 	const handleDeleteNote = (id: number) => {
 		setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id))
 	}
@@ -65,6 +77,10 @@ export const NotesProvider = ({ children }: NotesProviderProps) => {
 		)
 	}
 
+	const getNoteById = (id: number) => {
+		return notes.find((note) => note.id === id)
+	}
+
 	return (
 		<NotesContext.Provider
 			value={{
@@ -74,7 +90,9 @@ export const NotesProvider = ({ children }: NotesProviderProps) => {
 				handleArchivedNote,
 				handleDeleteNote,
 				handleAddNote,
-				setSearchQuery
+				handleEditNote,
+				setSearchQuery,
+				getNoteById
 			}}>
 			{children}
 		</NotesContext.Provider>

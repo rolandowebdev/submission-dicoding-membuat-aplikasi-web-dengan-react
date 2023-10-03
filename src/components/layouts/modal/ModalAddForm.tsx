@@ -32,7 +32,7 @@ export const ModalAddForm = ({ title }: ModalAddFormProps) => {
 							handleHideModal={handleHideModalAddForm}
 						/>
 						<ModalBody>
-							<Form handleHideModalAddForm={handleHideModalAddForm} />
+							<Form handleHideModalForm={handleHideModalAddForm} />
 						</ModalBody>
 					</ModalContent>
 				</>
