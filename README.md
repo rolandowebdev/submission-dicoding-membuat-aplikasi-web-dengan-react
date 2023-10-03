@@ -80,4 +80,4 @@ Big thanks for [Dicoding](https://www.dicoding.com/) and [Idcamp](https://idcamp
 
 <br clear="both">
 
-Thank you for checking out Read Easy! Happy learning and coding! If you have any questions or encounter any issues, feel free to open an issue on this repository.
+Thank you for checking out Ink Storm! Happy learning and coding! If you have any questions or encounter any issues, feel free to open an issue on this repository.
