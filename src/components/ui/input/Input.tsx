@@ -1,17 +1,23 @@
-import React, { useRef } from 'react'
+import React, { ChangeEvent, useRef } from 'react'
 import clsx from 'clsx'
 
 type InputProps = {
 	type: 'text' | 'number' | 'search'
+	name?: string
+	value: string | number
 	className?: string
 	placeholder: string
 	children: React.ReactNode
+	onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Input = ({
 	type,
+	name,
+	value,
 	className,
 	placeholder,
+	onChange,
 	children
 }: InputProps) => {
 	const inputWrapper = useRef<HTMLDivElement | null>(null)
@@ -32,6 +38,10 @@ export const Input = ({
 		}
 	}
 
+	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+		onChange(e)
+	}
+
 	return (
 		<div
 			ref={inputWrapper}
@@ -46,6 +56,9 @@ export const Input = ({
 			{children}
 			<input
 				type={type}
+				name={name}
+				value={value}
+				onChange={handleInputChange}
 				placeholder={placeholder}
 				className='h-full w-full bg-transparent outline-none placeholder:text-brand-softDark dark:placeholder:text-brand-softLight'
 			/>

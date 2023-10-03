@@ -6,18 +6,28 @@ import {
 	IconButton,
 	Input,
 	NoteContainer,
-	PageContainer
+	PageContainer,
+	Paragraph
 } from '@/components'
 import { AiOutlineSearch, AiOutlinePlus } from 'react-icons/ai'
 import { useNotes } from '@/hooks'
 
 export const App = () => {
-	const { archivedNotes, unarchivedNotes } = useNotes()
+	const { archivedNotes, unarchivedNotes, searchQuery, setSearchQuery } =
+		useNotes()
+
+	const isSearchResultEmpty = () => {
+		return archivedNotes.length < 1 && unarchivedNotes.length < 1
+	}
 
 	return (
 		<PageContainer>
 			<Header>
-				<Input type='search' placeholder='Search'>
+				<Input
+					type='search'
+					placeholder='Search'
+					value={searchQuery}
+					onChange={(e) => setSearchQuery(e.target.value)}>
 					<AiOutlineSearch className='text-lg' />
 				</Input>
 				<IconButton label='Add Note'>
@@ -42,6 +52,20 @@ export const App = () => {
 					))}
 				</CardContainer>
 			</NoteContainer>
+
+			{isSearchResultEmpty() &&
+				(searchQuery.length < 1 ? (
+					<Paragraph isSmall={false} className='text-2xl text-center font-bold'>
+						Note is currently empty :(
+					</Paragraph>
+				) : (
+					<Paragraph
+						isSmall={false}
+						className='text-lg text-center w-10/12 overflow-clip'>
+						No note found for search :{' '}
+						<span className='font-bold block'>{searchQuery}</span>
+					</Paragraph>
+				))}
 		</PageContainer>
 	)
 }
