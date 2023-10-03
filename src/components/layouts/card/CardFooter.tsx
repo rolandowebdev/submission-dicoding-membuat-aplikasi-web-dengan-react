@@ -1,8 +1,7 @@
-import { IconButton } from '@/components'
+import { Button, ModalDelete } from '@/components'
 import { useNotes } from '@/hooks'
 import { showFormattedDate } from '@/utils'
 import { FiEdit } from 'react-icons/fi'
-import { RiDeleteBin5Fill } from 'react-icons/ri'
 
 type CardFooterProps = {
 	id: number
@@ -19,16 +18,16 @@ export const CardFooter = ({ id, createdAt }: CardFooterProps) => {
 			</time>
 
 			<div className='flex items-center justify-end gap-2'>
-				<IconButton label='Edit Note' basic={false} className='py'>
+				<Button label='Edit Note' basicStyle={false} baseSize={false}>
 					<FiEdit className='text-lg text-brand-softDark transition-colors duration-300 dark:text-brand-softLight hover:text-emerald-500 dark:hover:text-emerald-500' />
-				</IconButton>
+				</Button>
 
-				<IconButton
-					label='Delete Note'
-					basic={false}
-					onClick={() => handleDeleteNote(id)}>
-					<RiDeleteBin5Fill className='text-xl text-brand-softDark transition-colors duration-300 dark:text-brand-softLight hover:text-rose-500 dark:hover:text-rose-500' />
-				</IconButton>
+				<ModalDelete
+					id={id}
+					title='Delete'
+					description='Are you sure want to delete this note?'
+					onDelete={handleDeleteNote}
+				/>
 			</div>
 		</div>
 	)

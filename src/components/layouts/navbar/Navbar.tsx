@@ -1,4 +1,4 @@
-import { Icon, IconButton } from '@/components'
+import { Icon, Button } from '@/components'
 import { useTheme } from '@/hooks'
 import { AiFillGithub } from 'react-icons/ai'
 import { BsCloudSunFill } from 'react-icons/bs'
@@ -16,12 +16,12 @@ export const Navbar = () => {
 					InkStorm
 				</Icon>
 				<nav className='flex items-center gap-3'>
-					<IconButton label='Toggle theme' onClick={toggleTheme}>
+					<Button label='Toggle theme' onClick={toggleTheme}>
 						{theme === 'dark' ? <FaCloudMoon /> : <BsCloudSunFill />}
-					</IconButton>
-					<IconButton label='Github button'>
+					</Button>
+					<Button label='Github button'>
 						<AiFillGithub />
-					</IconButton>
+					</Button>
 				</nav>
 			</header>
 		</div>

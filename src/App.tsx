@@ -3,11 +3,11 @@ import {
 	CardContainer,
 	NoteHeader,
 	Header,
-	IconButton,
 	Input,
 	NoteContainer,
 	PageContainer,
-	Paragraph
+	Paragraph,
+	Button
 } from '@/components'
 import { AiOutlineSearch, AiOutlinePlus } from 'react-icons/ai'
 import { useNotes } from '@/hooks'
@@ -30,9 +30,9 @@ export const App = () => {
 					onChange={(e) => setSearchQuery(e.target.value)}>
 					<AiOutlineSearch className='text-lg' />
 				</Input>
-				<IconButton label='Add Note'>
+				<Button label='Add Note'>
 					<AiOutlinePlus />
-				</IconButton>
+				</Button>
 			</Header>
 
 			<NoteContainer>

@@ -1,4 +1,5 @@
 export * from './card'
 export * from './container'
 export * from './header'
+export * from './modal'
 export * from './navbar'

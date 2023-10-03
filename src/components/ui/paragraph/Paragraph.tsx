@@ -3,7 +3,7 @@ import React from 'react'
 
 type ParagraphProps = {
 	isSmall?: boolean
-	className: string
+	className?: string
 	children: React.ReactNode
 }
 
