@@ -17,7 +17,11 @@ export const App = () => {
 		useNotes()
 
 	const isSearchResultEmpty = () => {
-		return archivedNotes.length < 1 && unarchivedNotes.length < 1
+		return (
+			searchQuery.length > 0 &&
+			archivedNotes.length < 1 &&
+			unarchivedNotes.length < 1
+		)
 	}
 
 	return (
@@ -51,19 +55,14 @@ export const App = () => {
 				</CardContainer>
 			</NoteContainer>
 
-			{isSearchResultEmpty() &&
-				(searchQuery.length < 1 ? (
-					<Paragraph isSmall={false} className='text-2xl text-center font-bold'>
-						Note is currently empty :(
-					</Paragraph>
-				) : (
-					<Paragraph
-						isSmall={false}
-						className='text-lg text-center w-10/12 overflow-clip'>
-						No note found for search :{' '}
-						<span className='font-bold block'>{searchQuery}</span>
-					</Paragraph>
-				))}
+			{isSearchResultEmpty() ? (
+				<Paragraph
+					isSmall={false}
+					className='text-lg text-center w-10/12 overflow-clip'>
+					No note found for search :{' '}
+					<span className='font-bold block'>{searchQuery}</span>
+				</Paragraph>
+			) : null}
 		</PageContainer>
 	)
 }

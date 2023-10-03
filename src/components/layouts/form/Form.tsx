@@ -35,7 +35,7 @@ export const Form = ({ handleHideModalAddForm }: FormProps) => {
 			</Input>
 			<Input
 				type='text'
-				name='description'
+				name='body'
 				placeholder='Description'
 				value={body}
 				onChange={(e) => setBody(e.target.value)}>
@@ -45,7 +45,7 @@ export const Form = ({ handleHideModalAddForm }: FormProps) => {
 				type='submit'
 				label='Create Note'
 				basicStyle={false}
-				className='bg-brand-blue focus:outline-brand-blue/50 hover:outline-brand-blue/50'>
+				className='text-brand-softLight bg-brand-blue focus:outline-brand-blue/50 hover:outline-brand-blue/50'>
 				Create
 			</Button>
 		</form>

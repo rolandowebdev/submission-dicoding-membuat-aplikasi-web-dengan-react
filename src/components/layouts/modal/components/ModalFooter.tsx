@@ -21,7 +21,7 @@ export const ModalFooter = ({
 				basicStyle={false}
 				label={buttonText}
 				onClick={handleDelete}
-				className='bg-rose-700 focus:outline-rose-600/50 hover:outline-rose-600/50'>
+				className='text-brand-softLight bg-rose-700 focus:outline-rose-600/50 hover:outline-rose-600/50 '>
 				{buttonText}
 			</Button>
 		</footer>
