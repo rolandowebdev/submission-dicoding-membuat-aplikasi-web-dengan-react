@@ -1,15 +1,14 @@
-import React, { ChangeEvent, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Paragraph } from '..'
 import clsx from 'clsx'
 
 type InputProps = {
 	type: 'text' | 'number' | 'search'
-	name?: string
+	name: string
 	value: string | number
-	className?: string
 	placeholder: string
 	children: React.ReactNode
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 	limitCharacter?: number
 }
 
@@ -17,7 +16,6 @@ export const Input = ({
 	type,
 	name,
 	value,
-	className,
 	placeholder,
 	onChange,
 	children,
@@ -44,7 +42,7 @@ export const Input = ({
 		}
 	}
 
-	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const inputValue = e.target.value
 		setCharacterCount(
 			limitCharacter !== undefined ? limitCharacter - inputValue.length : 0
@@ -63,12 +61,7 @@ export const Input = ({
 			ref={inputWrapper}
 			onBlur={handleBlur}
 			onFocus={handleFocus}
-			className={clsx(
-				'h-11 w-full flex items-center gap-1 px-2 rounded-md',
-				'bg-brand-softLight dark:bg-brand-softDark',
-				'transition-[background-color] duration-300',
-				className
-			)}>
+			className='h-11 w-full flex items-center gap-1 px-2 rounded-md bg-brand-softLight dark:bg-brand-softDark transition-[background-color] duration-300'>
 			{children}
 			<input
 				type={type}
@@ -76,7 +69,7 @@ export const Input = ({
 				value={value}
 				onChange={handleInputChange}
 				placeholder={placeholder}
-				className='h-full w-full bg-transparent outline-none placeholder:text-brand-softDark dark:placeholder:text-brand-softLight'
+				className='h-full w-full text-sm bg-transparent outline-none placeholder:text-brand-softDark dark:placeholder:text-brand-softLight'
 				autoComplete='off'
 				required
 			/>

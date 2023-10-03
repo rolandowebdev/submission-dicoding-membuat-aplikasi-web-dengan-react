@@ -1,7 +1,7 @@
-import { Button, Input } from '@/components'
+import { Button, Input, TextArea } from '@/components'
 import { useNotes } from '@/hooks'
 import { FormEvent, useState } from 'react'
-import { MdOutlineDescription, MdTitle } from 'react-icons/md'
+import { AiFillFileText } from 'react-icons/ai'
 
 type FormProps = {
 	id?: number
@@ -33,7 +33,7 @@ export const Form = ({ id, handleHideModalForm }: FormProps) => {
 	}
 
 	return (
-		<form className='flex flex-col gap-5' onSubmit={createNote}>
+		<form className='flex flex-col gap-4' onSubmit={createNote}>
 			<Input
 				type='text'
 				name='title'
@@ -41,16 +41,14 @@ export const Form = ({ id, handleHideModalForm }: FormProps) => {
 				value={title}
 				onChange={(e) => setTitle(e.target.value)}
 				limitCharacter={50}>
-				<MdTitle />
+				<AiFillFileText className='text-lg' />
 			</Input>
-			<Input
-				type='text'
-				name='body'
-				placeholder='Description'
+			<TextArea
+				name='description'
 				value={body}
-				onChange={(e) => setBody(e.target.value)}>
-				<MdOutlineDescription />
-			</Input>
+				onChange={(e) => setBody(e.target.value)}
+				placeholder='Description'
+			/>
 			<Button
 				type='submit'
 				label={isIdExist ? 'Edit' : 'Create'}
