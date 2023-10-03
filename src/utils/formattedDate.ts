@@ -5,5 +5,6 @@ export const showFormattedDate = (date: string) => {
 		month: 'short',
 		day: '2-digit'
 	}
+
 	return new Date(date).toLocaleDateString('id-ID', options)
 }

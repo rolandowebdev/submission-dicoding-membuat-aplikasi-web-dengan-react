@@ -1,14 +1,11 @@
 import Swal, { SweetAlertOptions } from 'sweetalert2'
 
 type ShowNotificationType = {
-	title?: string
+	title: string
 	message: string
 }
 
-export const showNotification = ({
-	title = 'Good Job!',
-	message
-}: ShowNotificationType) => {
+export const showNotification = ({ title, message }: ShowNotificationType) => {
 	const options: SweetAlertOptions = {
 		title: title,
 		width: '300px',

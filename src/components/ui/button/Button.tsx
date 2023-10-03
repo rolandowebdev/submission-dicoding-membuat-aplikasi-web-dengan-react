@@ -12,8 +12,8 @@ export type ButtonProps = {
 }
 
 export const Button = ({
-	type = 'button',
 	label,
+	type = 'button',
 	baseSize = true,
 	basicStyle = true,
 	children,

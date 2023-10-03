@@ -11,10 +11,11 @@ export const useTheme = () => {
 	})
 
 	useEffect(() => {
-		const root = window.document.documentElement
+		const root = window.document.body
+
 		if (theme === 'dark') {
-			root.classList.remove('light')
 			root.classList.add('dark')
+			root.classList.remove('light')
 		} else {
 			root.classList.add('light')
 			root.classList.remove('dark')

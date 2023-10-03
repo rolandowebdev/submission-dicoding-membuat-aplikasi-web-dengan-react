@@ -1,9 +1,9 @@
+import { Paragraph } from '@/components'
 import { Note } from '@/types'
-import { CardContent } from './CardContent'
-import { CardFooter } from './CardFooter'
 import { FormEvent, useState } from 'react'
 import { ModalBody, ModalContent, ModalHeader, ModalOverlay } from '..'
-import { Paragraph } from '@/components'
+import { CardContent } from './CardContent'
+import { CardFooter } from './CardFooter'
 
 export const Card = ({ id, title, body, createdAt, archived }: Note) => {
 	const [isShowModalCard, setIsShowModalCard] = useState(false)

@@ -29,6 +29,7 @@ export const App = () => {
 			<Header>
 				<Input
 					type='search'
+					name='search'
 					placeholder='Search'
 					value={searchQuery}
 					onChange={(e) => setSearchQuery(e.target.value)}>

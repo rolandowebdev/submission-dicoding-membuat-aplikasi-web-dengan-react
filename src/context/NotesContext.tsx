@@ -33,8 +33,8 @@ const initialNotesContext: NotesContextType = {
 export const NotesContext = createContext<NotesContextType>(initialNotesContext)
 
 export const NotesProvider = ({ children }: NotesProviderProps) => {
-	const [notes, setNotes] = useState<Note[]>(getInitialData())
-	const [searchQuery, setSearchQuery] = useState<string>('')
+	const [notes, setNotes] = useState(getInitialData())
+	const [searchQuery, setSearchQuery] = useState('')
 
 	const filteredNotes = notes.filter((note) =>
 		note.title.toLowerCase().includes(searchQuery.toLowerCase())

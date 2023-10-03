@@ -6,7 +6,7 @@ import {
 	ModalHeader,
 	ModalOverlay
 } from './components'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 type ModalAddFormProps = {
 	title: string
@@ -15,13 +15,20 @@ type ModalAddFormProps = {
 export const ModalAddForm = ({ title }: ModalAddFormProps) => {
 	const [isShowModalAddForm, setIsShowModalAddForm] = useState(false)
 
-	const handleShowModalAddForm = () => setIsShowModalAddForm(true)
-	const handleHideModalAddForm = () => setIsShowModalAddForm(false)
+	const handleShowModalAddForm = (event: FormEvent) => {
+		event.stopPropagation()
+		setIsShowModalAddForm(true)
+	}
+
+	const handleHideModalAddForm = (event: FormEvent) => {
+		event.stopPropagation()
+		setIsShowModalAddForm(false)
+	}
 
 	return (
 		<>
 			<Button label='Add Note' onClick={handleShowModalAddForm}>
-				<AiOutlinePlus />
+				<AiOutlinePlus className='text-base' />
 			</Button>
 			{isShowModalAddForm && (
 				<>

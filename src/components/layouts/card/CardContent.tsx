@@ -1,4 +1,4 @@
-import { Heading, Button, Paragraph } from '@/components'
+import { Button, Heading, Paragraph } from '@/components'
 import { useNotes } from '@/hooks'
 import { FormEvent } from 'react'
 import { BsPatchCheck } from 'react-icons/bs'
