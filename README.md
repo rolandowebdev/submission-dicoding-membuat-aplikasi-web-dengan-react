@@ -62,7 +62,7 @@ yarn build
 
 This repository is a Dicoding submission for the Learning to Create React Application for Beginners class. This class has submissions that must be completed to earn a certificate. The contents of this repository are the final section that includes the required criteria.
 
-> **_WARNING: Use this repo as a reference/reference._**
+> **_WARNING: Use this repo only as a reference._**
 >
 > - In accordance with the terms of use at Dicoding, Dicoding Academy class submissions must be your own work.
 >
